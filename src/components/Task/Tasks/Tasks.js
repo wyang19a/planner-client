@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
-// import { Link, Redirect } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { getTasks } from '../api/tasks'
-import messages from '../../AutoDismissAlert/messages'
+// import messages from '../../AutoDismissAlert/messages'
 import './Tasks.scss'
 
 const Tasks = props => {
@@ -10,17 +10,17 @@ const Tasks = props => {
   useEffect(() => {
     getTasks()
       .then(res => setTasks(res.data.tasks))
-      .then(() => props.alert({
-        heading: 'Get Tasks Success',
-        message: messages.getTasksSuccess,
-        variant: 'success'
-      }))
+      // .then(() => props.alert({
+      //   heading: 'Get Tasks Success',
+      //   message: messages.getTasksSuccess,
+      //   variant: 'success'
+      // }))
       .catch(console.error)
   }, [])
 
   const taskList = tasks.map(task => (
     <div key={task.id}>
-      <div> Title: {task.title}</div>
+      <Link to={`/tasks/${task.id}`}>{task.title}</Link>
     </div>
   ))
 
