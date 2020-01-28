@@ -56,7 +56,7 @@ const Task = props => {
       <p>{task.description}</p>
       <p>{task.Tfrom}</p>
       <p>{task.Tto}</p>
-      <Link to="/">Back to all tasks</Link>
+      <Link to="/tasks">Back to all tasks</Link>
     </div>
   )
 }

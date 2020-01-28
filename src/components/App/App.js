@@ -73,7 +73,7 @@ class App extends Component {
             />
           )} />
         </main>
-        <AuthenticatedRoute user={user} exact path='/' render={({ match }) => (
+        <AuthenticatedRoute user={user} exact path='/tasks' render={({ match }) => (
           <Tasks
             match={match}
             alert={this.alert}

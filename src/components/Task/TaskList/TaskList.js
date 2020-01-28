@@ -14,7 +14,7 @@ const TaskList = props => {
       url: `${apiUrl}/tasks/${event.target.name}`,
       method: 'PATCH',
       headers: {
-        'Authorization': `Bearer ${props.user.token}`
+        'Authorization': `Token token=${props.user.token}`
       },
       data: {
         task: {
@@ -42,7 +42,7 @@ const TaskList = props => {
   }
   if (deleted) {
     return <Redirect to={
-      { pathname: '/' }
+      { pathname: '/tasks' }
     } />
   }
   return (
@@ -66,7 +66,7 @@ const TaskList = props => {
           </div>
         </a>
         <div className="smenu">
-          <Link to={`/tasks/${props.id}/edit`}>Edit</Link>
+          <Link to={`/tasks/${props.id}/edit`} match={props.match} user={props.user}>Edit</Link>
           <a onClick={destroy} className="delete-btn">Delete</a>
           <Link to={`/tasks/${props.id}`}>Details</Link>
         </div>

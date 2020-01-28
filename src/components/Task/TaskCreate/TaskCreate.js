@@ -36,7 +36,7 @@ class TaskCreate extends Component {
       url: `${apiUrl}/tasks`,
       method: 'POST',
       headers: {
-        'Authorization': `Bearer ${this.props.user.token}`
+        'Authorization': `Token token=${this.props.user.token}`
       },
       data: {
         task: this.state.task
