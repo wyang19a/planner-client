@@ -1,1 +1,64 @@
 @import '~bootstrap/scss/bootstrap';
+
+.container-2 {
+  display: grid;
+  grid-template-areas:
+  'title title'
+  'tasks create';
+  width: 660px;
+  margin: 0 auto;
+  grid-gap: 10px;
+}
+
+.task-head {
+  grid-area: title;
+  text-align: center;
+}
+
+.task-create {
+  grid-area: create;
+  width: 330px;
+}
+
+.list-container {
+  grid-area: tasks;
+  display: grid;
+  grid-template-areas:
+  'check task';
+  max-height: 45px;
+  margin-bottom: 2px;
+}
+
+// .task-container {
+//   border: 1px solid black;
+//   padding: 5px;
+//   border-radius: 10px;
+//   overflow: scroll;
+//   max-height: 365px;
+// }
+.complete-check {
+  // grid-area: check;
+  width: 20px;
+  padding: 10px;
+  margin-right: 10px;
+  top: 50%;
+  transform: translateY(-7%)
+}
+
+.task-items {
+  color: black;
+  // grid-area: task;
+  width: 300px;
+  padding: 10px;
+  background: #87a0b2;
+  transition: .3s;
+  &:hover {
+    padding-left: -10px;
+    border-left: 10px solid #53687e;
+  }
+}
+
+.complete {
+  opacity: .3;
+  background-color: #95b69a;
+}

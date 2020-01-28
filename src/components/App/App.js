@@ -9,7 +9,7 @@ import SignIn from '../SignIn/SignIn'
 import SignOut from '../SignOut/SignOut'
 import ChangePassword from '../ChangePassword/ChangePassword'
 import Tasks from '../Task/Tasks/Tasks'
-import TaskCreate from '../Task/TaskCreate/TaskCreate'
+// import TaskCreate from '../Task/TaskCreate/TaskCreate'
 import Task from '../Task/Task/Task'
 import TaskEdit from '../Task/TaskEdit/TaskEdit'
 
@@ -19,7 +19,8 @@ class App extends Component {
 
     this.state = {
       user: null,
-      alerts: []
+      alerts: [],
+      tasks: []
     }
   }
 
@@ -47,26 +48,44 @@ class App extends Component {
         ))}
         <main className="container">
           <Route path='/sign-up' render={() => (
-            <SignUp alert={this.alert} setUser={this.setUser} />
+            <SignUp
+              alert={this.alert}
+              setUser={this.setUser}
+            />
           )} />
           <Route path='/sign-in' render={() => (
-            <SignIn alert={this.alert} setUser={this.setUser} />
+            <SignIn
+              alert={this.alert}
+              setUser={this.setUser}
+            />
           )} />
           <AuthenticatedRoute user={user} path='/sign-out' render={() => (
-            <SignOut alert={this.alert} clearUser={this.clearUser} user={user} />
+            <SignOut
+              alert={this.alert}
+              clearUser={this.clearUser}
+              user={user}
+            />
           )} />
           <AuthenticatedRoute user={user} path='/change-password' render={() => (
-            <ChangePassword alert={this.alert} user={user} />
+            <ChangePassword
+              alert={this.alert}
+              user={user}
+            />
           )} />
         </main>
-        <AuthenticatedRoute user={user} exact path='/' render={() => (
-          <Tasks alert={this.alert} user={user}/>
-        )} />
-        <AuthenticatedRoute user={user} exact path='/create-task' render={() => (
-          <TaskCreate alert={this.alert} user={user} />
+        <AuthenticatedRoute user={user} exact path='/' render={({ match }) => (
+          <Tasks
+            match={match}
+            alert={this.alert}
+            user={user}
+          />
         )} />
         <AuthenticatedRoute user={user} exact path='/tasks/:id' render={({ match }) => (
-          <Task match={match} alert={this.alert} user={user} />
+          <Task
+            match={match}
+            alert={this.alert}
+            user={user}
+          />
         )} />
         <AuthenticatedRoute user={user} exact path='/tasks/:id/edit' render={({ match }) => (
           <TaskEdit match={match} alert={this.alert} user={user} />

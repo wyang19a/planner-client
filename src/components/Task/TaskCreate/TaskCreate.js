@@ -2,8 +2,8 @@ import React, { Component } from 'react'
 import TaskForm from '../Form/TaskForm'
 import apiUrl from '../../../apiConfig'
 import axios from 'axios'
-import { Redirect } from 'react-router-dom'
 // import { getTasks } from '../api/tasks'
+import { Redirect } from 'react-router-dom'
 
 class TaskCreate extends Component {
   constructor (props) {
@@ -58,17 +58,32 @@ class TaskCreate extends Component {
         })
       })
   }
-
+  // resetForm = () => {
+  //   this.setState({
+  //     ...this.state,
+  //     task: {
+  //       title: '',
+  //       description: '',
+  //       Tfrom: '',
+  //       Tto: '',
+  //       completed: false
+  //     },
+  //     createdId: ''
+  //   })
+  // }
   render () {
     if (this.state.createdId) {
-      return <Redirect to={`/tasks/${this.state.createdId}`}/>
+      // this.resetForm()
+      return <Redirect to={`/tasks/${this.state.createdId}`} />
     }
     return (
-      <TaskForm
-        task={this.state.task}
-        handleChange={this.handleChange}
-        handleSubmit={this.handleSubmit}
-      />
+      <div className="task-create">
+        <TaskForm
+          task={this.state.task}
+          handleChange={this.handleChange}
+          handleSubmit={this.handleSubmit}
+        />
+      </div>
     )
   }
 }

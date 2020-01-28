@@ -4,7 +4,7 @@ import React from 'react'
 
 const TaskForm = ({ task, handleChange, handleSubmit }) => (
   <form onSubmit={handleSubmit}>
-    <h4>Title</h4>
+    <h5>Title</h5>
     <input
       placeholder="Task Title"
       type="text"
@@ -13,10 +13,10 @@ const TaskForm = ({ task, handleChange, handleSubmit }) => (
       name="title"
     />
     <br/>
-    <h4>Description</h4>
+    <h5>Description</h5>
     <textarea
       cols="40"
-      rows="10"
+      rows="4"
       placeholder="Task Description"
       type="text"
       value={task.description}
@@ -24,18 +24,18 @@ const TaskForm = ({ task, handleChange, handleSubmit }) => (
       name="description"
     />
     <br/>
-    <h4>From</h4>
+    <h5>From</h5>
     <input
       type="datetime-local"
-      value={task.Tfrom}
+      value={task.Tfrom ? task.Tfrom : ''}
       onChange={handleChange}
       name="Tfrom"
     />
     <br/>
-    <h4>To</h4>
+    <h5>To</h5>
     <input
       type="datetime-local"
-      value={task.Tto}
+      value={task.Tto ? task.Tto : ''}
       onChange={handleChange}
       name="Tto"
     />
