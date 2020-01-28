@@ -71,11 +71,11 @@ class TaskCreate extends Component {
   //     createdId: ''
   //   })
   // }
+  if (createdId) {
+    // this.resetForm()
+    return <Redirect to={`/tasks/${this.state.createdId}`} />
+  }
   render () {
-    if (this.state.createdId) {
-      // this.resetForm()
-      return <Redirect to={`/tasks/${this.state.createdId}`} />
-    }
     return (
       <div className="task-create">
         <TaskForm

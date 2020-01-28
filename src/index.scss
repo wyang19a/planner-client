@@ -1,4 +1,44 @@
 @import '~bootstrap/scss/bootstrap';
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
+}
+
+.acc-item {
+  display: block;
+  padding: 0;
+}
+
+.smenu {
+  overflow: hidden;
+  display: float;
+  transition: max-height .3s;
+  max-height: 0;
+}
+
+.smenu {
+  // margin-top: 1px;
+  text-align: center;
+  a {
+    color: black;
+    cursor: pointer;
+    padding: 5px;
+    text-decoration: none;
+    &:hover {
+      background: lightgray;
+    }
+  }
+}
+
+.item {
+  &:hover {
+    .smenu {
+      max-height: 70px;
+    }
+  }
+}
 
 .container-2 {
   display: grid;
@@ -26,7 +66,6 @@
   grid-template-areas:
   'check task';
   max-height: 45px;
-  margin-bottom: 2px;
 }
 
 // .task-container {
@@ -46,12 +85,14 @@
 }
 
 .task-items {
-  color: black;
-  // grid-area: task;
+  margin: 1px 0 1px 0;
   width: 300px;
   padding: 10px;
+  cursor: default;
+  color: black;
   background: #87a0b2;
   transition: .3s;
+  border-left: 10px solid #53687e00;
   &:hover {
     padding-left: -10px;
     border-left: 10px solid #53687e;

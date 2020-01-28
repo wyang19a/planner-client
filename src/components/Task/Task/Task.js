@@ -1,13 +1,13 @@
 // import React, { Component } from 'react'
 import React, { useState, useEffect } from 'react'
-import { Link, Redirect } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import axios from 'axios'
-import messages from '../../AutoDismissAlert/messages'
+// import messages from '../../AutoDismissAlert/messages'
 import apiUrl from '../../../apiConfig'
 
 const Task = props => {
   const [task, setTask] = useState(null)
-  const [deleted, setDeleted] = useState(false)
+  // const [deleted, setDeleted] = useState(false)
   // const [completed, setCompleted] = useState(false)
 
   useEffect(() => {
@@ -22,32 +22,32 @@ const Task = props => {
       .catch(console.error)
   }, [])
 
-  const destroy = () => {
-    axios({
-      url: `${apiUrl}/tasks/${props.match.params.id}`,
-      method: 'DELETE',
-      headers: {
-        'Authorization': `Bearer ${props.user.token}`
-      }
-    })
-      .then(() => setDeleted(true))
-      .then(() => props.alert({
-        heading: 'Deleted',
-        message: messages.deleteTaskSuccess,
-        variant: 'success'
-      }))
-      .catch(console.error)
-  }
+  // const destroy = () => {
+  //   axios({
+  //     url: `${apiUrl}/tasks/${props.match.params.id}`,
+  //     method: 'DELETE',
+  //     headers: {
+  //       'Authorization': `Bearer ${props.user.token}`
+  //     }
+  //   })
+  //     .then(() => setDeleted(true))
+  //     .then(() => props.alert({
+  //       heading: 'Deleted',
+  //       message: messages.deleteTaskSuccess,
+  //       variant: 'success'
+  //     }))
+  //     .catch(console.error)
+  // }
 
   if (!task) {
     return <p>Loading...</p>
   }
 
-  if (deleted) {
-    return <Redirect to={
-      { pathname: '/', state: { msg: 'Task succesfully deleted!' } }
-    } />
-  }
+  // if (deleted) {
+  //   return <Redirect to={
+  //     { pathname: '/', state: { msg: 'Task succesfully deleted!' } }
+  //   } />
+  // }
 
   return (
     <div className="task-item">
@@ -56,10 +56,6 @@ const Task = props => {
       <p>{task.description}</p>
       <p>{task.Tfrom}</p>
       <p>{task.Tto}</p>
-      <button onClick={destroy}>Delete Task</button>
-      <Link to={`/tasks/${props.match.params.id}/edit`}>
-        <button>Edit</button>
-      </Link>
       <Link to="/">Back to all tasks</Link>
     </div>
   )

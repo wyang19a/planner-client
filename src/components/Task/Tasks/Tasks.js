@@ -35,6 +35,7 @@ const Tasks = props => {
       Tto = {task.Tto}
       completed = {task.completed}
       user = {props.user}
+      alert = {props.alert}
     />
   ))
 
