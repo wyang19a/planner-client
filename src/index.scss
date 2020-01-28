@@ -89,6 +89,8 @@
   width: 300px;
   padding: 10px;
   cursor: default;
+  overflow: scroll;
+  white-space: nowrap;
   color: black;
   background: #87a0b2;
   transition: .3s;
