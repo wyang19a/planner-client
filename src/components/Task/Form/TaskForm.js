@@ -1,8 +1,9 @@
 import React from 'react'
 // import './TaskForm.scss'
-// const Datetime = require('react-datetime')
+import Datetime from 'react-datetime'
+// import DateTimePicker from 'react-datetime-picker'
 
-const TaskForm = ({ task, handleChange, handleSubmit }) => (
+const TaskForm = ({ task, handleChange, handleSubmit, handleTimeFrom, handleTimeTo }) => (
   <form onSubmit={handleSubmit}>
     <h5>Title</h5>
     <input
@@ -25,20 +26,22 @@ const TaskForm = ({ task, handleChange, handleSubmit }) => (
     />
     <br/>
     <h5>From</h5>
-    <input
-      type="datetime-local"
-      value={task.Tfrom ? task.Tfrom : ''}
-      onChange={handleChange}
-      name="Tfrom"
-    />
+    <div className="datetime-input">
+      <Datetime
+        value={task.Tfrom ? task.Tfrom : ''}
+        onChange={handleTimeFrom}
+        utc={true}
+      />
+    </div>
     <br/>
     <h5>To</h5>
-    <input
-      type="datetime-local"
-      value={task.Tto ? task.Tto : ''}
-      onChange={handleChange}
-      name="Tto"
-    />
+    <div className="datetime-input">
+      <Datetime
+        value={task.Tto ? task.Tto : ''}
+        onChange={handleTimeTo}
+        utc={true}
+      />
+    </div>
     <br/>
     <button type="submit">Submit</button>
   </form>

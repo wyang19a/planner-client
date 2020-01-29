@@ -17,7 +17,19 @@ const TaskCreate = props => {
 
   // set state does 'shallow merge' (only 1 level)
   // Object.assign merges deeper
-  const handleChange = event => {
+  const handleTimeFrom = (props) => {
+    setTask({
+      ...task,
+      'Tfrom': props
+    })
+  }
+  const handleTimeTo = (props) => {
+    setTask({
+      ...task,
+      'Tto': props
+    })
+  }
+  const handleChange = (props) => {
     setTask({
       ...task,
       [event.target.name]: event.target.value
@@ -50,6 +62,7 @@ const TaskCreate = props => {
         })
       })
   }
+
   // resetForm = () => {
   //   this.setState({
   //     ...this.state,
@@ -74,6 +87,8 @@ const TaskCreate = props => {
         task={task}
         handleChange={handleChange}
         handleSubmit={handleSubmit}
+        handleTimeFrom={handleTimeFrom}
+        handleTimeTo={handleTimeTo}
       />
     </div>
   )
