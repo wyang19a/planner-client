@@ -23,6 +23,7 @@ const TaskList = props => {
       }
     })
       .then(res => setCompleted(res.data.task.completed))
+      .catch(console.error)
   }
   const destroy = () => {
     axios({
@@ -48,27 +49,25 @@ const TaskList = props => {
   return (
     <div>
       <li className="item">
-        <a href="#" className="acc-menu">
-          <div className="list-container">
-            <div className="complete-check">
-              <input
-                type='checkbox'
-                key={props.id}
-                name={props.id}
-                value={props.completed}
-                onClick={setComplete}
-                defaultChecked={completed}
-              />
-            </div>
-            <div className={completed ? 'task-items complete' : 'task-items'}>
-              {props.title}
-            </div>
+        <div className="list-container">
+          <div className="complete-check">
+            <input
+              type='checkbox'
+              key={props.id}
+              name={props.id}
+              value={props.completed}
+              onClick={setComplete}
+              defaultChecked={completed}
+            />
           </div>
-        </a>
-        <div className="smenu">
+          <div className={completed ? 'task-items complete' : 'task-items'}>
+            {props.title}
+          </div>
+        </div>
+        <div className="accmenu">
           <Link to={`/tasks/${props.id}/edit`} match={props.match} user={props.user}>Edit</Link>
-          <a onClick={destroy} className="delete-btn">Delete</a>
           <Link to={`/tasks/${props.id}`}>Details</Link>
+          <a onClick={destroy} className="delete-btn">Delete</a>
         </div>
       </li>
     </div>
