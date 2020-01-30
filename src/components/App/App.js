@@ -11,7 +11,7 @@ import ChangePassword from '../ChangePassword/ChangePassword'
 import Tasks from '../Task/Tasks/Tasks'
 // import TaskCreate from '../Task/TaskCreate/TaskCreate'
 import Task from '../Task/Task/Task'
-import TaskEdit from '../Task/TaskEdit/TaskEdit'
+// import TaskEdit from '../Task/TaskEdit/TaskEdit'
 
 class App extends Component {
   constructor () {
@@ -86,12 +86,12 @@ class App extends Component {
             user={user}
           />
         )} />
-        <AuthenticatedRoute user={user} exact path='/tasks/:id/edit' render={({ match }) => (
-          <TaskEdit match={match} alert={this.alert} user={user} />
-        )} />
       </Fragment>
     )
   }
+  // <AuthenticatedRoute user={user} exact path='/tasks/:id/edit' render={({ match }) => (
+  //   <TaskEdit match={match} alert={this.alert} user={user} />
+  // )} />
 }
 
 export default App

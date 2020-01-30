@@ -52,6 +52,11 @@ const TaskList = props => {
       { pathname: '/tasks' }
     } />
   }
+  const setEdit = () => {
+    props.setEditId('')
+    props.setEdit(true)
+    props.setEditId(props.id)
+  }
   return (
     <div>
       <li className="item">
@@ -71,7 +76,7 @@ const TaskList = props => {
           </div>
         </div>
         <div className="accmenu">
-          <Link to={`/tasks/${props.id}/edit`} match={props.match} user={props.user}>Edit</Link>
+          <a onClick={setEdit}>Edit</a>
           <Link to={`/tasks/${props.id}`}>Details</Link>
           <a onClick={destroy} className="delete-btn">Delete</a>
         </div>

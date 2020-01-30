@@ -64,7 +64,7 @@ const TaskCreate = props => {
       })
       .catch(() => {
         props.alert({
-          heading: 'Something went wrong!',
+          heading: 'Title is required',
           message: 'Try Again.',
           variant: 'danger'
         })

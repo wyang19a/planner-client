@@ -7,13 +7,14 @@ import TaskCreate from '../TaskCreate/TaskCreate'
 import axios from 'axios'
 import apiUrl from '../../../apiConfig'
 // import AuthenticatedRoute from '../../AuthenticatedRoute/AuthenticatedRoute'
-// import TaskEdit from '../TaskEdit/TaskEdit'
+import TaskEdit from '../TaskEdit/TaskEdit'
 // import { Calendar } from '@fullcalendar/core'
 // import resourceTimeGridPlugin from '@fullcalendar/resource-timegrid'
 
 const Tasks = props => {
   const [tasks, setTasks] = useState([])
-
+  const [edit, setEdit] = useState(false)
+  const [editId, setEditId] = useState('')
   // Get all tasks
   useEffect(() => {
     axios({
@@ -27,7 +28,6 @@ const Tasks = props => {
       .then(res => setTasks(res.data.tasks))
       .catch(console.error)
   }, [])
-
   // map through the tasks state
   const taskList = tasks.map(task => (
     // call TaskList component, pass down id, title, description, times, completed, user and alert
@@ -41,6 +41,8 @@ const Tasks = props => {
       completed={task.completed}
       user={props.user}
       alert={props.alert}
+      setEdit={setEdit}
+      setEditId={setEditId}
     />
   ))
   // return list of tasks, and TaskCreate form.
@@ -52,12 +54,19 @@ const Tasks = props => {
       <div className="task-container">
         {taskList}
       </div>
-      <TaskCreate
-        alert={props.alert}
-        user={props.user}
-        setTasks={setTasks}
-        tasks={tasks}
-      />
+      {edit
+        ? <TaskEdit
+          setEdit={setEdit}
+          setEditId={setEditId}
+          editId={editId}
+          user={props.user}
+        />
+        : <TaskCreate
+          alert={props.alert}
+          user={props.user}
+          setTasks={setTasks}
+          tasks={tasks}
+        />}
     </div>
   )
 }
