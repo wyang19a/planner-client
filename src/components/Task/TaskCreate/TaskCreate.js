@@ -3,30 +3,31 @@ import TaskForm from '../Form/TaskForm'
 import apiUrl from '../../../apiConfig'
 import axios from 'axios'
 // import { getTasks } from '../api/tasks'
-import { Redirect } from 'react-router-dom'
+// import { Redirect } from 'react-router-dom'
 
 const TaskCreate = props => {
-  const [task, setTask] = useState({
+  const defaultTask = {
     title: '',
     description: '',
     Tfrom: '',
     Tto: '',
     completed: false
-  })
+  }
+  const [task, setTask] = useState(defaultTask)
   const [createdId, setCreatedId] = useState('')
-
+  // const [tasks, setTasks] = useState([])
   // set state does 'shallow merge' (only 1 level)
   // Object.assign merges deeper
-  const handleTimeFrom = (props) => {
+  const handleTimeFrom = (time) => {
     setTask({
       ...task,
-      'Tfrom': props
+      'Tfrom': time
     })
   }
-  const handleTimeTo = (props) => {
+  const handleTimeTo = (time) => {
     setTask({
       ...task,
-      'Tto': props
+      'Tto': time
     })
   }
   const handleChange = (props) => {
@@ -46,7 +47,14 @@ const TaskCreate = props => {
       },
       data: { task }
     })
-      .then(res => setCreatedId(res.data.task.id))
+      .then(res => {
+        setCreatedId(res.data.task.id)
+        return res
+      })
+      .then(res => {
+        props.tasks.push(res.data.task)
+        props.setTasks(props.tasks)
+      })
       .then(() => {
         props.alert({
           heading: 'Woot Woot!',
@@ -62,23 +70,9 @@ const TaskCreate = props => {
         })
       })
   }
-
-  // resetForm = () => {
-  //   this.setState({
-  //     ...this.state,
-  //     task: {
-  //       title: '',
-  //       description: '',
-  //       Tfrom: '',
-  //       Tto: '',
-  //       completed: false
-  //     },
-  //     createdId: ''
-  //   })
-  // }
   if (createdId) {
-    console.log(createdId)
-    return <Redirect to={`/tasks/${createdId}`} />
+    setTask(defaultTask)
+    setCreatedId('')
   }
   return (
     <div className="task-create">
@@ -89,6 +83,7 @@ const TaskCreate = props => {
         handleSubmit={handleSubmit}
         handleTimeFrom={handleTimeFrom}
         handleTimeTo={handleTimeTo}
+        Tfrom={task.Tfrom}
       />
     </div>
   )

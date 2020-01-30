@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import { Redirect } from 'react-router-dom'
 import axios from 'axios'
-
 import apiUrl from '../../../apiConfig'
 import TaskForm from '../Form/TaskForm'
-// import Tasks from '../Tasks/Tasks'
+
 const TaskEdit = props => {
   const [task, setTask] = useState({
     title: '',
@@ -30,7 +29,7 @@ const TaskEdit = props => {
     event.persist() // use with every event handlers in react.
     setTask({ ...task, [event.target.name]: event.target.value })
   }
-  // try to use moment().format in another method
+
   const handleSubmit = event => {
     event.persist()
     event.preventDefault()

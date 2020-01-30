@@ -3,12 +3,13 @@ import { Link, Redirect } from 'react-router-dom'
 import axios from 'axios'
 import messages from '../../AutoDismissAlert/messages'
 import apiUrl from '../../../apiConfig'
-// import { destroy } from '../Task/Task'
-// import TaskCreate from '../TaskCreate/TaskCreate'
+// TaskList is called from Tasks/Tasks.js
+
 const TaskList = props => {
+  // completed, deleted states
   const [completed, setCompleted] = useState(props.completed)
   const [deleted, setDeleted] = useState(false)
-
+  // set backend completed to whatever is not state completed when checkbox is clicked.
   const setComplete = () => {
     axios({
       url: `${apiUrl}/tasks/${event.target.name}`,
@@ -22,9 +23,11 @@ const TaskList = props => {
         }
       }
     })
+    // set state to backend completed
       .then(res => setCompleted(res.data.task.completed))
       .catch(console.error)
   }
+  // destroy clicked id
   const destroy = () => {
     axios({
       url: `${apiUrl}/tasks/${props.id}`,
@@ -33,7 +36,9 @@ const TaskList = props => {
         'Authorization': `Token token=${props.user.token}`
       }
     })
+      // set state deleted to true
       .then(() => setDeleted(true))
+      // alert message for deleting a message
       .then(() => props.alert({
         heading: 'WOOT WOOT',
         message: messages.deleteTaskSuccess,
@@ -41,6 +46,7 @@ const TaskList = props => {
       }))
       .catch(console.error)
   }
+  // redirect to tasks when
   if (deleted) {
     return <Redirect to={
       { pathname: '/tasks' }

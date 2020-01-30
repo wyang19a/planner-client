@@ -1,12 +1,16 @@
 import React from 'react'
-// import './TaskForm.scss'
 import Datetime from 'react-datetime'
-// import DateTimePicker from 'react-datetime-picker'
+
+const yesterday = Datetime.moment().subtract(1, 'day')
+const valid = function (current) {
+  return current.isAfter(yesterday)
+}
 
 const TaskForm = ({ task, handleChange, handleSubmit, handleTimeFrom, handleTimeTo }) => (
   <form onSubmit={handleSubmit}>
     <h5>Title</h5>
     <input
+      className="form-title-input"
       placeholder="Task Title"
       type="text"
       value={task.title}
@@ -16,6 +20,7 @@ const TaskForm = ({ task, handleChange, handleSubmit, handleTimeFrom, handleTime
     <br/>
     <h5>Description</h5>
     <textarea
+      className="form-description-input"
       cols="40"
       rows="4"
       placeholder="Task Description"
@@ -25,21 +30,28 @@ const TaskForm = ({ task, handleChange, handleSubmit, handleTimeFrom, handleTime
       name="description"
     />
     <br/>
-    <h5>From</h5>
+    <h5>Date/Time</h5>
     <div className="datetime-input">
       <Datetime
+        className="form-tfrom-input"
+        inputProps={{
+          placeholder: 'From'
+        }}
         value={task.Tfrom ? task.Tfrom : ''}
         onChange={handleTimeFrom}
         utc={true}
+        isValidDate={valid}
       />
-    </div>
-    <br/>
-    <h5>To</h5>
-    <div className="datetime-input">
       <Datetime
+        className="form-tto-input"
+        inputProps={{
+          placeholder: 'To',
+          background: 'none'
+        }}
         value={task.Tto ? task.Tto : ''}
         onChange={handleTimeTo}
         utc={true}
+        isValidDate={valid}
       />
     </div>
     <br/>

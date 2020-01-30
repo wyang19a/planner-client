@@ -5,7 +5,9 @@
   list-style: none;
   text-decoration: none;
 }
-
+body {
+  background-image: linear-gradient(to right, white , lightgray);
+}
 .datetime-input {
   width: 330px;
   margin: 0 auto;
@@ -115,7 +117,41 @@
   opacity: .3;
   background-color: #95b69a;
 }
-
+.check {
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+}
+// form style
+.form-title-input {
+  border: 1px solid black;
+  margin: 0 auto;
+  width: 330px;
+  padding: 6px 12px;
+  border-radius: 0.25rem;
+}
+.form-description-input {
+  border: 1px solid black;
+  margin: 0 auto;
+  padding: 6px 12px;
+  width: 330px;
+  border-radius: 0.25rem;
+}
+.form-tfrom-input {
+  border: 1px solid black;
+  text-align: center;
+  margin: 0 auto;
+  width: 330px;
+  border-radius: 0.25rem;
+  margin-bottom: 0.25rem;
+}
+.form-tto-input {
+  border: 1px solid black;
+  text-align: center;
+  margin: 0 auto;
+  width: 330px;
+  border-radius: 0.25rem;
+}
 // React Datetime style
 .rdt {
   position: relative;

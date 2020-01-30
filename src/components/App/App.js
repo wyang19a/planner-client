@@ -19,8 +19,7 @@ class App extends Component {
 
     this.state = {
       user: null,
-      alerts: [],
-      tasks: []
+      alerts: []
     }
   }
 

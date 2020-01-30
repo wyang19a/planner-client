@@ -8,11 +8,13 @@ import axios from 'axios'
 import apiUrl from '../../../apiConfig'
 // import AuthenticatedRoute from '../../AuthenticatedRoute/AuthenticatedRoute'
 // import TaskEdit from '../TaskEdit/TaskEdit'
+// import { Calendar } from '@fullcalendar/core'
+// import resourceTimeGridPlugin from '@fullcalendar/resource-timegrid'
 
 const Tasks = props => {
   const [tasks, setTasks] = useState([])
 
-  // console.log(props.user)
+  // Get all tasks
   useEffect(() => {
     axios({
       method: 'GET',
@@ -21,24 +23,27 @@ const Tasks = props => {
         'Authorization': `Token token=${props.user.token}`
       }
     })
+    // Populate tasks states
       .then(res => setTasks(res.data.tasks))
       .catch(console.error)
   }, [])
 
+  // map through the tasks state
   const taskList = tasks.map(task => (
+    // call TaskList component, pass down id, title, description, times, completed, user and alert
     <TaskList
       key={task.id}
-      id = {task.id}
-      title = {task.title}
-      description = {task.description}
-      Tfrom = {task.Tfrom}
-      Tto = {task.Tto}
-      completed = {task.completed}
-      user = {props.user}
-      alert = {props.alert}
+      id={task.id}
+      title={task.title}
+      description={task.description}
+      Tfrom={task.Tfrom}
+      Tto={task.Tto}
+      completed={task.completed}
+      user={props.user}
+      alert={props.alert}
     />
   ))
-
+  // return list of tasks, and TaskCreate form.
   return (
     <div className="container-2">
       <div className="task-head">
@@ -48,8 +53,10 @@ const Tasks = props => {
         {taskList}
       </div>
       <TaskCreate
-        alert = {props.alert}
-        user = {props.user}
+        alert={props.alert}
+        user={props.user}
+        setTasks={setTasks}
+        tasks={tasks}
       />
     </div>
   )
