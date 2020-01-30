@@ -50,7 +50,20 @@ const TaskEdit = props => {
     })
       .then(() => setUpdated(true))
       .then(() => props.setEditForm(false))
-      .catch(console.error)
+      .then(() => {
+        props.alert({
+          heading: 'Success!',
+          message: 'You edited a task.',
+          variant: 'success'
+        })
+      })
+      .catch(() => {
+        props.alert({
+          heading: 'Title is required',
+          message: 'Please try again.',
+          variant: 'danger'
+        })
+      })
   }
   const setEditFalse = () => {
     props.setEdit(false)

@@ -57,8 +57,8 @@ const TaskCreate = props => {
       })
       .then(() => {
         props.alert({
-          heading: 'Woot Woot!',
-          message: 'You done created a task.',
+          heading: 'Success!',
+          message: 'You created a task.',
           variant: 'success'
         })
       })

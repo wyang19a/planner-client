@@ -64,6 +64,7 @@ const Tasks = props => {
           editId={editId}
           user={props.user}
           setEditForm={setEditForm}
+          alert={props.alert}
         />
         : <TaskCreate
           alert={props.alert}
