@@ -24,8 +24,10 @@ const TaskEdit = props => {
       }
     })
       .then(res => {
-        setTask(res.data.task)
+        setTask(defaultTask)
+        return res
       })
+      .then(res => setTask(res.data.task))
       .catch(console.error)
   }, [])
 
@@ -47,24 +49,26 @@ const TaskEdit = props => {
       data: { task }
     })
       .then(() => setUpdated(true))
+      .then(() => props.setEditForm(false))
       .catch(console.error)
   }
   const setEditFalse = () => {
     props.setEdit(false)
+    props.setEditForm(false)
   }
   if (updated) {
     return <Redirect to={`/tasks/${props.editId}`} />
   }
   return (
     <div className="task-item">
-      <h3> Edit Task </h3>
+      <h3> Edit Task ID:{props.editId} </h3>
       <TaskForm
         task={task}
         handleChange={handleChange}
         handleSubmit={handleSubmit}
         cancelPath={`/tasks/${props.editId}`}
       />
-      <a onClick={setEditFalse}>Back to create</a>
+      <a onClick={setEditFalse}>Cancel</a>
     </div>
   )
 }

@@ -56,6 +56,7 @@ const TaskList = props => {
     props.setEditId('')
     props.setEdit(true)
     props.setEditId(props.id)
+    props.setEditForm(true)
   }
   return (
     <div>
@@ -76,7 +77,7 @@ const TaskList = props => {
           </div>
         </div>
         <div className="accmenu">
-          <a onClick={setEdit}>Edit</a>
+          {props.editForm ? '' : <a onClick={setEdit}>Edit</a>}
           <Link to={`/tasks/${props.id}`}>Details</Link>
           <a onClick={destroy} className="delete-btn">Delete</a>
         </div>

@@ -15,6 +15,7 @@ const Tasks = props => {
   const [tasks, setTasks] = useState([])
   const [edit, setEdit] = useState(false)
   const [editId, setEditId] = useState('')
+  const [editForm, setEditForm] = useState(false)
   // Get all tasks
   useEffect(() => {
     axios({
@@ -43,6 +44,8 @@ const Tasks = props => {
       alert={props.alert}
       setEdit={setEdit}
       setEditId={setEditId}
+      setEditForm={setEditForm}
+      editForm={editForm}
     />
   ))
   // return list of tasks, and TaskCreate form.
@@ -60,6 +63,7 @@ const Tasks = props => {
           setEditId={setEditId}
           editId={editId}
           user={props.user}
+          setEditForm={setEditForm}
         />
         : <TaskCreate
           alert={props.alert}
