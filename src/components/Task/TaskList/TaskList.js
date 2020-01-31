@@ -24,7 +24,13 @@ const TaskList = props => {
       }
     })
     // set state to backend completed
-      .then(res => setCompleted(res.data.task.completed))
+      .then(res => {
+        setCompleted(res.data.task.completed)
+        // console.log(props.tasks, props.id)
+        return res
+      })
+      .then(props.tasks.find(task => task.id === props.id).completed = !completed)
+      .then(props.setTodoNum(props.tasks.filter(task => task.completed === false).length))
       .catch(console.error)
   }
   // destroy clicked id

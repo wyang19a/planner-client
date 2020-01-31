@@ -16,6 +16,7 @@ const Tasks = props => {
   const [edit, setEdit] = useState(false)
   const [editId, setEditId] = useState('')
   const [editForm, setEditForm] = useState(false)
+  const [todoNum, setTodoNum] = useState(0)
   // Get all tasks
   useEffect(() => {
     axios({
@@ -26,10 +27,15 @@ const Tasks = props => {
       }
     })
     // Populate tasks states
-      .then(res => setTasks(res.data.tasks))
+      .then(res => {
+        setTasks(res.data.tasks)
+        return res
+      })
+      .then(res => setTodoNum(res.data.tasks.filter(task => task.completed === false).length))
       .catch(console.error)
   }, [])
   // map through the tasks state
+  console.log(tasks)
   const taskList = tasks.map(task => (
     // call TaskList component, pass down id, title, description, times, completed, user and alert
     <TaskList
@@ -46,13 +52,16 @@ const Tasks = props => {
       setEditId={setEditId}
       setEditForm={setEditForm}
       editForm={editForm}
+      setTodoNum={setTodoNum}
+      tasks={tasks}
+      setTasks={setTasks}
     />
   ))
   // return list of tasks, and TaskCreate form.
   return (
     <div className="container-2">
       <div className="task-head">
-        <h3>Tasks</h3>
+        <h1>{todoNum ? `You have ${todoNum} tasks remaining!` : 'You completed all tasks!'}</h1>
       </div>
       <div className="task-container">
         {taskList}

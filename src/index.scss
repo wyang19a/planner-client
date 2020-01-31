@@ -15,6 +15,7 @@ body {
 
 .navbar {
   background: #3F51B5;
+  margin-bottom: 30px;
 }
 
 .btn-primary {
@@ -100,13 +101,6 @@ body {
   max-height: 45px;
 }
 
-// .task-container {
-//   border: 1px solid black;
-//   padding: 5px;
-//   border-radius: 10px;
-//   overflow: scroll;
-//   max-height: 365px;
-// }
 .complete-check {
   grid-area: check;
   margin-right: 10px;
