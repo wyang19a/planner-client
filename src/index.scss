@@ -22,7 +22,12 @@ body {
   display: flex;
   justify-content: center;
 }
-
+.app-name-container {
+  display: flex;
+}
+.icon {
+  font-size: 30px;
+}
 .task-detail-box {
   border: 1px solid black;
   width: 400px;

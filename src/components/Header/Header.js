@@ -27,7 +27,10 @@ const alwaysOptions = (
 const Header = ({ user }) => (
   <Navbar className="navbar" variant="dark" expand="md">
     <Navbar.Brand href="#/tasks">
-      <FontAwesomeIcon icon={faTasks} />{' '}Get It Done
+      <div className="app-name-container">
+        <FontAwesomeIcon className="icon" style={{ marginRight: '15px' }} icon={faTasks} />
+        <div className="app-name">Get It Done !</div>
+      </div>
     </Navbar.Brand>
     <Navbar.Toggle aria-controls="basic-navbar-nav" />
     <Navbar.Collapse id="basic-navbar-nav">
