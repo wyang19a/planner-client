@@ -2,7 +2,7 @@
 
 This application allows user to CRUD tasks resource, and keep track of complete/incomplete tasks.
 
-![App-image](https://media.git.generalassemb.ly/user/23929/files/c7050c00-43c0-11ea-96ea-bf41026f01a0)
+![App-image](https://imgur.com/8Dm1qEN)
 
 ## Setup Steps
 
