@@ -55,7 +55,6 @@ const TaskCreate = props => {
         props.tasks.push(res.data.task)
         props.setTasks(props.tasks)
       })
-      .then(props.setTodoNum(props.todoNum + 1))
       .then(() => {
         props.alert({
           heading: 'Success!',
@@ -74,6 +73,7 @@ const TaskCreate = props => {
   if (createdId) {
     setTask(defaultTask)
     setCreatedId('')
+    props.setTodoNum(props.todoNum + 1)
   }
   return (
     <div className="task-create">
