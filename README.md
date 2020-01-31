@@ -39,7 +39,8 @@ I planned to make a simple to do list, which can be updated to become a project 
 - React.js
 - Jsx/sass
 - React Bootstrap
-- Rails
+- [Backend](https://github.com/wyang19a/planner-api)
+
 
 ### Unsolved problems
 
