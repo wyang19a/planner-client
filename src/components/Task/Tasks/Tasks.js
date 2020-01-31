@@ -35,7 +35,6 @@ const Tasks = props => {
       .catch(console.error)
   }, [])
   // map through the tasks state
-  console.log(tasks)
   const taskList = tasks.map(task => (
     // call TaskList component, pass down id, title, description, times, completed, user and alert
     <TaskList
@@ -53,6 +52,7 @@ const Tasks = props => {
       setEditForm={setEditForm}
       editForm={editForm}
       setTodoNum={setTodoNum}
+      todoNum={todoNum}
       tasks={tasks}
       setTasks={setTasks}
     />
@@ -61,7 +61,7 @@ const Tasks = props => {
   return (
     <div className="container-2">
       <div className="task-head">
-        <h1>{todoNum ? `You have ${todoNum} tasks remaining!` : 'You completed all tasks!'}</h1>
+        <h2>{todoNum ? `You have ${todoNum} tasks remaining!` : 'You don\'t have any task. Creat one!'}</h2>
       </div>
       <div className="task-container">
         {taskList}
@@ -80,6 +80,8 @@ const Tasks = props => {
           user={props.user}
           setTasks={setTasks}
           tasks={tasks}
+          setTodoNum={setTodoNum}
+          todoNum={todoNum}
         />}
     </div>
   )

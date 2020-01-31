@@ -35,6 +35,7 @@ const TaskList = props => {
   }
   // destroy clicked id
   const destroy = () => {
+    props.setTodoNum(props.todoNum - 1)
     axios({
       url: `${apiUrl}/tasks/${props.id}`,
       method: 'DELETE',
@@ -46,7 +47,7 @@ const TaskList = props => {
       .then(() => setDeleted(true))
       // alert message for deleting a message
       .then(() => props.alert({
-        heading: 'WOOT WOOT',
+        heading: 'Deleted',
         message: messages.deleteTaskSuccess,
         variant: 'success'
       }))
