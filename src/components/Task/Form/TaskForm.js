@@ -1,7 +1,7 @@
 import React from 'react'
 import Datetime from 'react-datetime'
 
-const yesterday = Datetime.moment().subtract(1, 'day')
+const yesterday = Datetime.moment()
 const valid = function (current) {
   return current.isAfter(yesterday)
 }
