@@ -116,6 +116,10 @@ body {
   width: 20px;
 }
 
+.task-detail {
+  text-align: center;
+}
+
 .task-items {
   background: #87a0b2;
   border-left: 10px solid #53687e00;
@@ -193,10 +197,12 @@ body {
     background: #303F9F;
   }
 }
+
 .cancel-btn-container {
   display: flex;
   justify-content: center;
 }
+
 .cancel-btn {
   margin-top: 5px;
   border: 0;
@@ -204,6 +210,21 @@ body {
   width: 165px;
 }
 
+.heading-container {
+  text-align: center;
+}
+
+.title-head {
+  margin-bottom: 0;
+}
+
+.desc-head {
+  margin: 8px 0 0 0;
+}
+
+.datetime-head {
+  margin-bottom: 0;
+}
 // React Datetime style
 .rdt {
   position: relative;

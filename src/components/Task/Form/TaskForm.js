@@ -1,7 +1,7 @@
 import React from 'react'
 import Datetime from 'react-datetime'
 
-const yesterday = Datetime.moment()
+const yesterday = Datetime.moment().subtract(2, 'day')
 const valid = function (current) {
   return current.isAfter(yesterday)
 }
@@ -9,7 +9,7 @@ const valid = function (current) {
 const TaskForm = ({ task, handleChange, handleSubmit, handleTimeFrom, handleTimeTo }) => (
   <form onSubmit={handleSubmit}>
     <div className="heading-container">
-      <h5>Title</h5>
+      <h5 className="title-head">Title</h5>
     </div>
     <input
       className="form-title-input"
@@ -21,7 +21,7 @@ const TaskForm = ({ task, handleChange, handleSubmit, handleTimeFrom, handleTime
     />
     <br/>
     <div className="heading-container">
-      <h5>Description</h5>
+      <h5 className="desc-head">Description</h5>
     </div>
     <textarea
       className="form-description-input"
@@ -35,7 +35,7 @@ const TaskForm = ({ task, handleChange, handleSubmit, handleTimeFrom, handleTime
     />
     <br/>
     <div className="heading-container">
-      <h5>Date/Time</h5>
+      <h5 className="datetime-head">Date/Time</h5>
     </div>
     <div className="datetime-input">
       <Datetime
