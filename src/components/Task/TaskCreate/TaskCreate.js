@@ -83,7 +83,6 @@ const TaskCreate = props => {
         handleSubmit={handleSubmit}
         handleTimeFrom={handleTimeFrom}
         handleTimeTo={handleTimeTo}
-        Tfrom={task.Tfrom}
       />
     </div>
   )

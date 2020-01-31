@@ -23,7 +23,7 @@ const alwaysOptions = (
 )
 
 const Header = ({ user }) => (
-  <Navbar bg="primary" variant="dark" expand="md">
+  <Navbar addClass="navbar" variant="dark" expand="md">
     <Navbar.Brand href="#/tasks">
       PLANNER
     </Navbar.Brand>

@@ -31,6 +31,20 @@ const TaskEdit = props => {
       .catch(console.error)
   }, [])
 
+  const handleTimeFrom = (time) => {
+    setTask({
+      ...task,
+      'Tfrom': time
+    })
+  }
+
+  const handleTimeTo = (time) => {
+    setTask({
+      ...task,
+      'Tto': time
+    })
+  }
+
   const handleChange = event => {
     event.persist() // use with every event handlers in react.
     setTask({ ...task, [event.target.name]: event.target.value })
@@ -79,9 +93,12 @@ const TaskEdit = props => {
         task={task}
         handleChange={handleChange}
         handleSubmit={handleSubmit}
-        cancelPath={`/tasks/${props.editId}`}
+        handleTimeFrom={handleTimeFrom}
+        handleTimeTo={handleTimeTo}
       />
-      <a onClick={setEditFalse}>Cancel</a>
+      <div className="cancel-btn-container">
+        <button className="cancel-btn" onClick={setEditFalse}>Cancel</button>
+      </div>
     </div>
   )
 }

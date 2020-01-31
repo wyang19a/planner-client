@@ -77,9 +77,9 @@ const TaskList = props => {
           </div>
         </div>
         <div className="accmenu">
-          {props.editForm ? '' : <a onClick={setEdit}>Edit</a>}
+          {props.editForm ? '' : <a style={{ color: 'white' }} onClick={setEdit}>Edit</a>}
           <Link to={`/tasks/${props.id}`}>Details</Link>
-          <a onClick={destroy} className="delete-btn">Delete</a>
+          <a onClick={destroy} style={{ color: 'white' }} className="delete-btn">Delete</a>
         </div>
       </li>
     </div>

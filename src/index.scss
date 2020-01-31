@@ -1,22 +1,41 @@
 @import '~bootstrap/scss/bootstrap';
+
 * {
+  list-style: none;
   margin: 0;
   padding: 0;
-  list-style: none;
   text-decoration: none;
 }
+
 body {
-  background-image: linear-gradient(to right, white , lightgray);
+  background-image: url('./img/background.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
 }
+
+.navbar {
+  background: #3F51B5;
+}
+
+.btn-primary {
+  background: #3F51B5;
+  border: 0;
+  border-radius: 0;
+  &:hover {
+    background: #303F9F;
+  }
+}
+
 .datetime-input {
-  width: 330px;
   margin: 0 auto;
+  width: 330px;
 }
+
 .accmenu {
-  overflow: hidden;
   display: float;
-  transition: max-height .3s;
   max-height: 0;
+  overflow: hidden;
+  transition: max-height .3s;
 }
 
 .accmenu {
@@ -24,22 +43,23 @@ body {
   display: block;
   text-align: right;
   .delete-btn {
-  background: #ff6961;
-  &:hover {
-    background: #f4c1c1;
+    background: #FF5722;
+    &:hover {
+      background: #ff3d03;
+    }
   }
-  }
+
   a {
+    background: #3F51B5;
+    color: white;
     cursor: pointer;
+    margin-left: 5px;
     padding: 0 10px;
     text-decoration: none;
-    margin-left: 5px;
     transition: .3s;
-    background: #83af98;
-    color: black;
     &:hover {
       // box-shadow: 2px 2px 2px 2px #888888;
-      background: #c8c8a9;
+      background: #303F9F;
     }
   }
 }
@@ -54,12 +74,12 @@ body {
 
 .container-2 {
   display: grid;
+  grid-gap: 10px;
   grid-template-areas:
   'title title'
   'tasks create';
-  width: 660px;
   margin: 0 auto;
-  grid-gap: 10px;
+  width: 660px;
 }
 
 .task-head {
@@ -73,8 +93,8 @@ body {
 }
 
 .list-container {
-  grid-area: tasks;
   display: grid;
+  grid-area: tasks;
   grid-template-areas:
   'check task';
   max-height: 45px;
@@ -89,66 +109,101 @@ body {
 // }
 .complete-check {
   grid-area: check;
-  width: 20px;
-  padding: 10px;
   margin-right: 10px;
+  padding: 10px;
   top: 50%;
-  transform: translateY(-7%)
+  transform: translateY(-7%);
+  width: 20px;
 }
 
 .task-items {
-  margin: 1px 0 1px 0;
-  width: 300px;
-  padding: 10px;
-  overflow: auto;
-  white-space: nowrap;
-  color: black;
   background: #87a0b2;
-  transition: .3s;
   border-left: 10px solid #53687e00;
+  color: white;
+  margin: 1px 0;
+  overflow: auto;
+  padding: 10px;
+  transition: .3s;
+  white-space: nowrap;
+  width: 300px;
   &:hover {
     border-left: 10px solid #53687e;
   }
 }
+
 .complete {
+  background-color: #6e6e6e;
   opacity: .3;
-  background-color: #95b69a;
 }
+
 .check {
   color: white;
-  font-size: 20px;
   cursor: pointer;
+  font-size: 20px;
 }
+
 // form style
 .form-title-input {
   border: 1px solid black;
+  border-radius: .25rem;
   margin: 0 auto;
-  width: 330px;
   padding: 6px 12px;
-  border-radius: 0.25rem;
+  width: 330px;
 }
+
 .form-description-input {
   border: 1px solid black;
+  border-radius: .25rem;
   margin: 0 auto;
   padding: 6px 12px;
   width: 330px;
-  border-radius: 0.25rem;
 }
+
 .form-tfrom-input {
   border: 1px solid black;
-  text-align: center;
+  border-radius: .25rem;
   margin: 0 auto;
+  margin-bottom: .25rem;
+  text-align: center;
   width: 330px;
-  border-radius: 0.25rem;
-  margin-bottom: 0.25rem;
 }
+
 .form-tto-input {
   border: 1px solid black;
-  text-align: center;
+  border-radius: .25rem;
   margin: 0 auto;
+  text-align: center;
   width: 330px;
-  border-radius: 0.25rem;
 }
+
+.submit-btn-container {
+  display: flex;
+  justify-content: center;
+}
+
+.form-submit {
+  border: 0;
+  padding: 5px;
+  width: 165px;
+  background: #3F51B5;
+  color: white;
+  transition: .3s;
+  &:hover {
+    color: white;
+    background: #303F9F;
+  }
+}
+.cancel-btn-container {
+  display: flex;
+  justify-content: center;
+}
+.cancel-btn {
+  margin-top: 5px;
+  border: 0;
+  padding: 5px;
+  width: 165px;
+}
+
 // React Datetime style
 .rdt {
   position: relative;

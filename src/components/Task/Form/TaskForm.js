@@ -8,7 +8,9 @@ const valid = function (current) {
 
 const TaskForm = ({ task, handleChange, handleSubmit, handleTimeFrom, handleTimeTo }) => (
   <form onSubmit={handleSubmit}>
-    <h5>Title</h5>
+    <div className="heading-container">
+      <h5>Title</h5>
+    </div>
     <input
       className="form-title-input"
       placeholder="Task Title"
@@ -18,7 +20,9 @@ const TaskForm = ({ task, handleChange, handleSubmit, handleTimeFrom, handleTime
       name="title"
     />
     <br/>
-    <h5>Description</h5>
+    <div className="heading-container">
+      <h5>Description</h5>
+    </div>
     <textarea
       className="form-description-input"
       cols="40"
@@ -30,7 +34,9 @@ const TaskForm = ({ task, handleChange, handleSubmit, handleTimeFrom, handleTime
       name="description"
     />
     <br/>
-    <h5>Date/Time</h5>
+    <div className="heading-container">
+      <h5>Date/Time</h5>
+    </div>
     <div className="datetime-input">
       <Datetime
         className="form-tfrom-input"
@@ -48,14 +54,16 @@ const TaskForm = ({ task, handleChange, handleSubmit, handleTimeFrom, handleTime
           placeholder: 'To',
           background: 'none'
         }}
-        value={task.Tto ? task.Tto : ''}
+        value={task.Tto}
         onChange={handleTimeTo}
         utc={true}
         isValidDate={valid}
       />
     </div>
     <br/>
-    <button type="submit">Submit</button>
+    <div className="submit-btn-container">
+      <button type="submit" className="form-submit">Submit</button>
+    </div>
   </form>
 )
 
