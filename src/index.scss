@@ -18,6 +18,20 @@ body {
   margin-bottom: 30px;
 }
 
+.task-detail-container {
+  display: flex;
+  justify-content: center;
+}
+
+.task-detail-box {
+  border: 1px solid black;
+  width: 400px;
+  padding: 30px;
+  background: #8fb3ccaa;
+  border-radius: 5px;
+  box-shadow: 5px 5px 5px;
+}
+
 .btn-primary {
   background: #3F51B5;
   border: 0;
@@ -91,6 +105,12 @@ body {
 .task-create {
   grid-area: create;
   width: 330px;
+  background: #8fb3ccaa;
+  padding: 5px;
+  text-align: center;
+  border-radius: 5px;
+  color: black;
+  box-shadow: 5px 5px 5px;
 }
 
 .list-container {
@@ -115,9 +135,9 @@ body {
 }
 
 .task-items {
-  background: #87a0b2;
+  background: #8fb3cc;
   border-left: 10px solid #53687e00;
-  color: white;
+  color: black;
   margin: 1px 0;
   overflow: auto;
   padding: 10px;
@@ -131,13 +151,7 @@ body {
 
 .complete {
   background-color: #6e6e6e;
-  opacity: .3;
-}
-
-.check {
-  color: white;
-  cursor: pointer;
-  font-size: 20px;
+  opacity: .5;
 }
 
 // form style
@@ -146,7 +160,7 @@ body {
   border-radius: .25rem;
   margin: 0 auto;
   padding: 6px 12px;
-  width: 330px;
+  width: 310px;
 }
 
 .form-description-input {
@@ -154,7 +168,7 @@ body {
   border-radius: .25rem;
   margin: 0 auto;
   padding: 6px 12px;
-  width: 330px;
+  width: 310px;
 }
 
 .form-tfrom-input {
@@ -163,7 +177,8 @@ body {
   margin: 0 auto;
   margin-bottom: .25rem;
   text-align: center;
-  width: 330px;
+  width: 310px;
+  transform: translateX(-1.5%);
 }
 
 .form-tto-input {
@@ -171,7 +186,8 @@ body {
   border-radius: .25rem;
   margin: 0 auto;
   text-align: center;
-  width: 330px;
+  width: 310px;
+  transform: translateX(-1.5%);
 }
 
 .submit-btn-container {
@@ -186,6 +202,7 @@ body {
   background: #3F51B5;
   color: white;
   transition: .3s;
+  margin-bottom: 5px;
   &:hover {
     color: white;
     background: #303F9F;
@@ -198,10 +215,16 @@ body {
 }
 
 .cancel-btn {
-  margin-top: 5px;
+  margin: 5px 0;
   border: 0;
   padding: 5px;
   width: 165px;
+  background: lightgray;
+  transition: .3s;
+  &:hover {
+    background: gray;
+    color: white;
+  }
 }
 
 .heading-container {

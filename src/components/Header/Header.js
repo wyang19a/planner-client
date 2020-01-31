@@ -1,6 +1,8 @@
 import React, { Fragment } from 'react'
 import Nav from 'react-bootstrap/Nav'
 import Navbar from 'react-bootstrap/Navbar'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faTasks } from '@fortawesome/free-solid-svg-icons'
 
 const authenticatedOptions = (
   <Fragment>
@@ -25,7 +27,7 @@ const alwaysOptions = (
 const Header = ({ user }) => (
   <Navbar className="navbar" variant="dark" expand="md">
     <Navbar.Brand href="#/tasks">
-      PLANNER
+      <FontAwesomeIcon icon={faTasks} />{' '}Get It Done
     </Navbar.Brand>
     <Navbar.Toggle aria-controls="basic-navbar-nav" />
     <Navbar.Collapse id="basic-navbar-nav">

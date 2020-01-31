@@ -87,7 +87,7 @@ const TaskEdit = props => {
     return <Redirect to={`/tasks/${props.editId}`} />
   }
   return (
-    <div className="task-item">
+    <div className="task-create">
       <h3> Edit Task ID:{props.editId} </h3>
       <TaskForm
         task={task}

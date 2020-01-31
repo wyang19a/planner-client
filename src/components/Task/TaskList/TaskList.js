@@ -35,7 +35,7 @@ const TaskList = props => {
   }
   // destroy clicked id
   const destroy = () => {
-    props.setTodoNum(props.todoNum - 1)
+    props.todoNum > 0 ? props.setTodoNum(props.todoNum - 1) : props.setTodoNum(props.todoNum)
     axios({
       url: `${apiUrl}/tasks/${props.id}`,
       method: 'DELETE',

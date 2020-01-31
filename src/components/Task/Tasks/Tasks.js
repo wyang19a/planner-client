@@ -61,7 +61,7 @@ const Tasks = props => {
   return (
     <div className="container-2">
       <div className="task-head">
-        <h2>{todoNum ? `You have ${todoNum} tasks remaining!` : 'You don\'t have any task. Creat one!'}</h2>
+        <h2>{todoNum ? `You have ${todoNum} tasks remaining!` : 'Great job! You completed all tasks!'}</h2>
       </div>
       <div className="task-container">
         {taskList}

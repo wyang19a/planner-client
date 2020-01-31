@@ -23,13 +23,15 @@ const Task = props => {
   }
 
   return (
-    <div className="task-detail">
-      <h4>{task.title}</h4>
-      <hr/>
-      <p>{task.description}</p>
-      <p>{task.Tfrom}</p>
-      <p>{task.Tto}</p>
-      <Link to="/tasks">Back to all tasks</Link>
+    <div className="task-detail-container">
+      <div className="task-detail-box">
+        <h2>{task.title}</h2>
+        <hr/>
+        <p>{task.description}</p>
+        <h5>Date/Time</h5>
+        <p>{task.Tfrom} - {task.Tto}</p>
+        <Link to="/tasks">Back to all tasks</Link>
+      </div>
     </div>
   )
 }
