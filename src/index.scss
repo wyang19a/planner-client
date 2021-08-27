@@ -1,4 +1,4 @@
-@import '~bootstrap/scss/bootstrap';
+@import "~bootstrap/scss/bootstrap";
 
 * {
   list-style: none;
@@ -8,14 +8,15 @@
 }
 
 body {
-  background-image: url('./img/background.jpg');
+  background-image: url("./img/background.jpg");
   background-size: cover;
   background-repeat: no-repeat;
 }
 
 .navbar {
-  background: #3F51B5;
+  background: #3f51b5;
   margin-bottom: 30px;
+  color: black;
 }
 
 .task-detail-container {
@@ -38,11 +39,11 @@ body {
 }
 
 .btn-primary {
-  background: #3F51B5;
+  background: #3f51b5;
   border: 0;
   border-radius: 0;
   &:hover {
-    background: #303F9F;
+    background: #303f9f;
   }
 }
 
@@ -55,7 +56,7 @@ body {
   display: float;
   max-height: 0;
   overflow: hidden;
-  transition: max-height .3s;
+  transition: max-height 0.3s;
 }
 
 .accmenu {
@@ -63,23 +64,23 @@ body {
   display: block;
   text-align: right;
   .delete-btn {
-    background: #FF5722;
+    background: #ff5722;
     &:hover {
       background: #ff3d03;
     }
   }
 
   a {
-    background: #3F51B5;
+    background: #3f51b5;
     color: white;
     cursor: pointer;
     margin-left: 5px;
     padding: 0 10px;
     text-decoration: none;
-    transition: .3s;
+    transition: 0.3s;
     &:hover {
       // box-shadow: 2px 2px 2px 2px #888888;
-      background: #303F9F;
+      background: #303f9f;
     }
   }
 }
@@ -96,8 +97,8 @@ body {
   display: grid;
   grid-gap: 10px;
   grid-template-areas:
-  'title title'
-  'tasks create';
+    "title title"
+    "tasks create";
   margin: 0 auto;
   width: 660px;
 }
@@ -121,8 +122,7 @@ body {
 .list-container {
   display: grid;
   grid-area: tasks;
-  grid-template-areas:
-  'check task';
+  grid-template-areas: "check task";
   max-height: 45px;
 }
 
@@ -146,7 +146,7 @@ body {
   margin: 1px 0;
   overflow: auto;
   padding: 10px;
-  transition: .3s;
+  transition: 0.3s;
   white-space: nowrap;
   width: 300px;
   &:hover {
@@ -156,13 +156,13 @@ body {
 
 .complete {
   background-color: #6e6e6e;
-  opacity: .5;
+  opacity: 0.5;
 }
 
 // form style
 .form-title-input {
   border: 1px solid black;
-  border-radius: .25rem;
+  border-radius: 0.25rem;
   margin: 0 auto;
   padding: 6px 12px;
   width: 310px;
@@ -170,7 +170,7 @@ body {
 
 .form-description-input {
   border: 1px solid black;
-  border-radius: .25rem;
+  border-radius: 0.25rem;
   margin: 0 auto;
   padding: 6px 12px;
   width: 310px;
@@ -178,9 +178,9 @@ body {
 
 .form-tfrom-input {
   border: 1px solid black;
-  border-radius: .25rem;
+  border-radius: 0.25rem;
   margin: 0 auto;
-  margin-bottom: .25rem;
+  margin-bottom: 0.25rem;
   text-align: center;
   width: 310px;
   transform: translateX(-1.5%);
@@ -188,7 +188,7 @@ body {
 
 .form-tto-input {
   border: 1px solid black;
-  border-radius: .25rem;
+  border-radius: 0.25rem;
   margin: 0 auto;
   text-align: center;
   width: 310px;
@@ -204,13 +204,13 @@ body {
   border: 0;
   padding: 5px;
   width: 165px;
-  background: #3F51B5;
+  background: #3f51b5;
   color: white;
-  transition: .3s;
+  transition: 0.3s;
   margin-bottom: 5px;
   &:hover {
     color: white;
-    background: #303F9F;
+    background: #303f9f;
   }
 }
 
@@ -225,7 +225,7 @@ body {
   padding: 5px;
   width: 165px;
   background: lightgray;
-  transition: .3s;
+  transition: 0.3s;
   &:hover {
     background: gray;
     color: white;
@@ -259,7 +259,7 @@ body {
   margin-top: 1px;
   z-index: 99999 !important;
   background: #fff;
-  box-shadow: 0 1px 3px rgba(0,0,0,.1);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
   border: 1px solid #f9f9f9;
 }
 .rdtOpen .rdtPicker {
@@ -302,7 +302,7 @@ body {
   position: relative;
 }
 .rdtPicker td.rdtToday:before {
-  content: '';
+  content: "";
   display: inline-block;
   border-left: 7px solid transparent;
   border-bottom: 7px solid #428bca;
@@ -357,10 +357,10 @@ body {
 .rdtNext span {
   display: block;
   -webkit-touch-callout: none; /* iOS Safari */
-  -webkit-user-select: none;   /* Chrome/Safari/Opera */
-  -khtml-user-select: none;    /* Konqueror */
-  -moz-user-select: none;      /* Firefox */
-  -ms-user-select: none;       /* Internet Explorer/Edge */
+  -webkit-user-select: none; /* Chrome/Safari/Opera */
+  -khtml-user-select: none; /* Konqueror */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
   user-select: none;
 }
 
@@ -433,10 +433,10 @@ td.rdtYear:hover {
   display: block;
 
   -webkit-touch-callout: none; /* iOS Safari */
-  -webkit-user-select: none;   /* Chrome/Safari/Opera */
-  -khtml-user-select: none;    /* Konqueror */
-  -moz-user-select: none;      /* Firefox */
-  -ms-user-select: none;       /* Internet Explorer/Edge */
+  -webkit-user-select: none; /* Chrome/Safari/Opera */
+  -khtml-user-select: none; /* Konqueror */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
   user-select: none;
 }
 .rdtCounter .rdtBtn:hover {
